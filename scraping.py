@@ -1,5 +1,5 @@
 # Import selenium
-get_ipython().system('pip install selenium')
+#get_ipython().system('pip install selenium')
 # Import Splinter and BeautifulSoup (10.3.3)
 from splinter import Browser
 from bs4 import BeautifulSoup as soup
@@ -7,14 +7,14 @@ import pandas as pd
 import datetime as dt
 from webdriver_manager.chrome import ChromeDriverManager
 
-# Set up Splintter
+# Set up Splintter (10.3.6)
 def scrape_all():
     executable_path = {'executable_path': ChromeDriverManager().install()}
     browser = Browser('chrome', **executable_path, headless=True)
     
     news_title, news_paragraph = mars_news(browser)
     
-# Run all scraping functions and store results in dictionary
+# Run all scraping functions and store results in dictionary (10.3.6)
     data = {
     "news_title": news_title,
     "news_paragraph": news_paragraph,
@@ -27,7 +27,7 @@ def scrape_all():
     browser.quit()
     return data
 
-def mars_news():
+def mars_news(browser):
 
     # Visit the mars nasa news site (10.3.3)
     url = 'https://redplanetscience.com'
